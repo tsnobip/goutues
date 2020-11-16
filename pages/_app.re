@@ -28,11 +28,7 @@ let default = (props: props): React.element => {
   let content = React.createElement(component, pageProps);
 
   switch (router.route) {
-  | "/examples" =>
-    <MainLayout>
-      <h1 className="font-bold"> {React.string("Examples Section")} </h1>
-      <div> content </div>
-    </MainLayout>
+  | "/episodes" => <MainLayout> content </MainLayout>
   | _ => <MainLayout> content </MainLayout>
   };
 };

@@ -1,3 +1,5 @@
+const { colors } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -17,6 +19,11 @@ module.exports = {
   theme: {
     extend: {
     },
+    colors: {
+      ...colors,
+      yellow: '#eedf83',
+      brown: '#9b4d1c'
+    },
     /* Most of the time we customize the font-sizes,
      so we added the Tailwind default values here for
      convenience */
@@ -34,9 +41,9 @@ module.exports = {
     },
     /* We override the default font-families with our own default prefs  */
     fontFamily: {
-      'sans':['-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Arial', 'sans-serif'],
-      'serif': ['Georgia', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Arial', 'sans-serif'], 
-      'mono': [ 'Menlo', 'Monaco', 'Consolas', 'Roboto Mono', 'SFMono-Regular', 'Segoe UI', 'Courier', 'monospace']
+      'sans': ['-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      'serif': ['Georgia', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      'mono': ['Menlo', 'Monaco', 'Consolas', 'Roboto Mono', 'SFMono-Regular', 'Segoe UI', 'Courier', 'monospace']
     },
   },
   variants: {

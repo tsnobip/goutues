@@ -14,25 +14,23 @@ function MainLayout$Navigation(Props) {
                             className: "w-5",
                             src: "/static/zeit-black-triangle.svg"
                           }), React.createElement("span", {
-                            className: "text-xl ml-2 align-middle font-semibold"
-                          }, "Next", React.createElement("span", {
-                                className: "text-orange-800"
-                              }, "RE")))
+                            className: "text-orange-800 ml-2 text-xl font-semibold"
+                          }, "Goûtues"))
                 }), React.createElement("div", {
                   className: "flex w-2/3 justify-end"
                 }, React.createElement(Link, {
                       href: "/",
                       children: React.createElement("a", {
                             className: "px-3"
-                          }, "Home")
+                          }, "À propos")
                     }), React.createElement(Link, {
-                      href: "/examples",
+                      href: "/episodes",
                       children: React.createElement("a", {
                             className: "px-3"
-                          }, "Examples")
+                          }, "Épisodes")
                     }), React.createElement("a", {
                       className: "px-3 font-bold",
-                      href: "https://github.com/ryyppy/nextjs-default",
+                      href: "https://github.com/tsnobip/goutues",
                       target: "_blank"
                     }, "Github")));
 }
