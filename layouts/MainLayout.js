@@ -5,34 +5,47 @@ import Link from "next/link";
 
 function MainLayout$Navigation(Props) {
   return React.createElement("nav", {
-              className: "p-2 h-12 flex border-b border-gray-200 justify-between items-center text-sm"
+              className: "p-2 h-12 flex border-b border-gray-200 justify-between items-center text-m"
             }, React.createElement(Link, {
                   href: "/",
                   children: React.createElement("a", {
                         className: "flex items-center w-1/3"
-                      }, React.createElement("img", {
-                            className: "w-5",
-                            src: "/static/zeit-black-triangle.svg"
-                          }), React.createElement("span", {
-                            className: "text-orange-800 ml-2 text-xl font-semibold"
-                          }, "Goûtues"))
+                      }, React.createElement("span", {
+                            className: "text-orange-800 ml-2 text-4xl font-semibold font-wildy"
+                          }, "Goutues"))
                 }), React.createElement("div", {
                   className: "flex w-2/3 justify-end"
                 }, React.createElement(Link, {
-                      href: "/",
-                      children: React.createElement("a", {
-                            className: "px-3"
-                          }, "À propos")
-                    }), React.createElement(Link, {
                       href: "/episodes",
                       children: React.createElement("a", {
                             className: "px-3"
                           }, "Épisodes")
-                    }), React.createElement("a", {
-                      className: "px-3 font-bold",
-                      href: "https://github.com/tsnobip/goutues",
-                      target: "_blank"
-                    }, "Github")));
+                    }), React.createElement("div", {
+                      className: "flex flex-row items-center"
+                    }, React.createElement("a", {
+                          className: "px-1",
+                          href: "https://facebook.com/goutues",
+                          target: "_blank"
+                        }, React.createElement("img", {
+                              className: "h-6",
+                              src: "/static/ri-facebook-circle-line.svg"
+                            })), React.createElement("a", {
+                          className: "px-1",
+                          href: "https://www.instagram.com/goutues/",
+                          target: "_blank"
+                        }, React.createElement("img", {
+                              className: "h-6",
+                              href: "instagram.com",
+                              src: "/static/ri-instagram-line.svg",
+                              target: "_blank"
+                            })), React.createElement("a", {
+                          className: "px-1",
+                          href: "https://smartlink.ausha.co/goutues",
+                          target: "_blank"
+                        }, React.createElement("img", {
+                              className: "w-16",
+                              src: "/static/ausha.svg"
+                            })))));
 }
 
 var Navigation = {

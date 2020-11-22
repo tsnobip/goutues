@@ -4,28 +4,44 @@ module Navigation = {
   [@react.component]
   let make = () =>
     <nav
-      className="p-2 h-12 flex border-b border-gray-200 justify-between items-center text-sm">
+      className="p-2 h-12 flex border-b border-gray-200 justify-between items-center text-m">
       <Link href="/">
         <a className="flex items-center w-1/3">
-          <img className="w-5" src="/static/zeit-black-triangle.svg" />
-          <span className="text-orange-800 ml-2 text-xl font-semibold">
-            {React.string({js|Goûtues|js})}
+          <span
+            className="text-orange-800 ml-2 text-4xl font-semibold font-wildy">
+            {React.string({js|Goutues|js})}
           </span>
         </a>
       </Link>
       <div className="flex w-2/3 justify-end">
-        <Link href="/">
-          <a className="px-3"> {React.string({js|À propos|js})} </a>
-        </Link>
         <Link href="/episodes">
           <a className="px-3"> {React.string({js|Épisodes|js})} </a>
         </Link>
-        <a
-          className="px-3 font-bold"
-          target="_blank"
-          href="https://github.com/tsnobip/goutues">
-          {React.string("Github")}
-        </a>
+        <div className="flex flex-row items-center">
+          <a
+            className="px-1"
+            target="_blank"
+            href="https://facebook.com/goutues">
+            <img className="h-6" src="/static/ri-facebook-circle-line.svg" />
+          </a>
+          <a
+            className="px-1"
+            target="_blank"
+            href="https://www.instagram.com/goutues/">
+            <img
+              target="_blank"
+              href="instagram.com"
+              className="h-6"
+              src="/static/ri-instagram-line.svg"
+            />
+          </a>
+          <a
+            target="_blank"
+            className="px-1"
+            href="https://smartlink.ausha.co/goutues">
+            <img className="w-16" src="/static/ausha.svg" />
+          </a>
+        </div>
       </div>
     </nav>;
 };

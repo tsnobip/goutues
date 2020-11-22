@@ -29,7 +29,7 @@ let default = ({episods}: props) =>
 
 let getServerSideProps: Next.GetServerSideProps.t(props, {.}) =
   _ctx => {
-    Api.Podcasts.get(~active=true, ())
+    Api.Podcasts.get(~public=true, ())
     ->Promise.map(episods => {
         let props = {episods: episods};
         {"props": props};

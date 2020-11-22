@@ -1367,11 +1367,23 @@ function t_decode$6(v) {
   return data_decode(t_decode$5, v);
 }
 
-function get$1(activeOpt, draftOpt, scheduledOpt, param) {
+function get$1(publicOpt, private_Opt, unlistedOpt, activeOpt, draftOpt, scheduledOpt, param) {
+  var $$public = publicOpt !== undefined ? publicOpt : false;
+  var private_ = private_Opt !== undefined ? private_Opt : false;
+  var unlisted = unlistedOpt !== undefined ? unlistedOpt : false;
   var active = activeOpt !== undefined ? activeOpt : false;
   var draft = draftOpt !== undefined ? draftOpt : false;
   var scheduled = scheduledOpt !== undefined ? scheduledOpt : false;
   var statuses = [];
+  if ($$public) {
+    statuses.push("public");
+  }
+  if (private_) {
+    statuses.push("private");
+  }
+  if (unlisted) {
+    statuses.push("unlisted");
+  }
   if (active) {
     statuses.push("active");
   }

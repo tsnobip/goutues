@@ -24,7 +24,7 @@ function $$default(param) {
 }
 
 function getServerSideProps(_ctx) {
-  return $$Promise.map(Api.Podcasts.get(true, undefined, undefined, undefined), (function (episods) {
+  return $$Promise.map(Api.Podcasts.get(true, undefined, undefined, undefined, undefined, undefined, undefined), (function (episods) {
                 return {
                         props: {
                           episods: episods

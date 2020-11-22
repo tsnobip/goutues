@@ -47,6 +47,16 @@ module IsoDate = {
     ) =>
     string =
     "toLocaleDateString";
+
+  [@bs.send]
+  external toMonthAndYearShortString:
+    (
+      t,
+      [@bs.as {json|undefined|json}] _,
+      [@bs.as {json|{month: 'short', year: 'numeric'}|json}] _
+    ) =>
+    string =
+    "toLocaleDateString";
 };
 
 module Common = {
@@ -257,9 +267,26 @@ module Podcasts = {
   type t = Common.data(Podcast.t);
 
   let get =
-      (~active=false, ~draft=false, ~scheduled=false, ())
+      (
+        ~public=false,
+        ~private=false,
+        ~unlisted=false,
+        ~active=false,
+        ~draft=false,
+        ~scheduled=false,
+        (),
+      )
       : Promise.t(Js.Json.t) => {
     let statuses = [||];
+    if (public) {
+      statuses->Js.Array2.push("public")->ignore;
+    };
+    if (private) {
+      statuses->Js.Array2.push("private")->ignore;
+    };
+    if (unlisted) {
+      statuses->Js.Array2.push("unlisted")->ignore;
+    };
     if (active) {
       statuses->Js.Array2.push("active")->ignore;
     };
