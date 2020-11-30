@@ -6,7 +6,7 @@ let defaultImage = "https://image.ausha.co/y16tcxiM957ICPP3MtB2HvmB9ot3e5di2OiKS
 [@react.component]
 let make = (~episod as {name, image_url, published_at}: Api.Podcast.t) => {
   <div
-    className="max-w-sm rounded-xl overflow-hidden m-5 flex flex-col items-center bg-gray-200 shadow-xl">
+    className="max-w-sm border-2 border-gray-600 rounded-xl overflow-hidden m-5 flex flex-col items-center bg-gray-200 shadow-xl">
     <img
       className="object-contain"
       src={image_url->Option.getWithDefault(defaultImage)}

@@ -1,16 +1,30 @@
+open Belt;
+open Utils;
+
 module P = {
   [@react.component]
   let make = (~children) => <p className="mb-2"> children </p>;
 };
 
-let default = () =>
-  <div>
-    <h1 className="text-3xl font-semibold">
-      {js|Goûtues c'est quoi ?|js}->ReasonReact.string
-    </h1>
+type props = {show: Js.Json.t};
+
+let default = ({show}: props) =>
+  switch (show->Api.Shows.SingleById.t_decode) {
+  | Result.Ok({data: show}) =>
+    <div dangerouslySetInnerHTML={"__html": show.Api.Show.html_description} />
+  | Result.Error(error) =>
+    Js.Console.error(error);
     <P>
-      {React.string(
-         {j|Goûtues est un tour de France des femmes gastronomes.|j},
-       )}
-    </P>
-  </div>;
+      {j|Il y a eu un problème lors de la récupération des informations. Veuillez recharger la page.|j}
+      ->s
+    </P>;
+  };
+
+let getServerSideProps: Next.GetServerSideProps.t(props, {.}) =
+  _ctx => {
+    Api.Shows.SingleById.get()
+    ->Promise.map(show => {
+        let props = {show: show};
+        {"props": props};
+      });
+  };

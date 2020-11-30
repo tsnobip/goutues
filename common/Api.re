@@ -87,12 +87,15 @@ module Common = {
     meta,
     links,
   };
+
+  [@decco]
+  type simpleData('a) = {data: 'a};
+
+  [@decco]
+  type arrayData('a) = simpleData(array('a));
 };
 
 module Podcast = {
-  [@decco]
-  type data('a) = {data: array('a)};
-
   module Type = {
     type t =
       | Full
@@ -257,8 +260,8 @@ module Podcast = {
     published_at: IsoDate.t,
     created_at: IsoDate.t,
     updated_at: IsoDate.t,
-    tags: data(tag),
-    files: data(file),
+    tags: Common.arrayData(tag),
+    files: Common.arrayData(file),
   };
 };
 
@@ -307,5 +310,25 @@ module Podcasts = {
       };
     let url = {j|$baseUrl/v1/shows/$showId/podcasts$queryString|j};
     get(url)->Promise.flatMap(Fetch.json);
+  };
+};
+
+module Show = {
+  [@decco]
+  type t = {
+    description: string,
+    html_description: string,
+  };
+};
+
+module Shows = {
+  module SingleById = {
+    [@decco]
+    type t = Common.simpleData(Show.t);
+
+    let get = (): Promise.t(Js.Json.t) => {
+      let url = {j|$baseUrl/v1/shows/$showId|j};
+      get(url)->Promise.flatMap(Fetch.json);
+    };
   };
 };

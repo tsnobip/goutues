@@ -1,5 +1,6 @@
 
 
+import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as Decco from "decco/src/Decco.js";
 import * as Js_dict from "bs-platform/lib/es6/js_dict.js";
 import * as Js_json from "bs-platform/lib/es6/js_json.js";
@@ -390,25 +391,14 @@ function data_decode(decoder_a, v) {
         };
 }
 
-var Common = {
-  pagination_encode: pagination_encode,
-  pagination_decode: pagination_decode,
-  meta_encode: meta_encode,
-  meta_decode: meta_decode,
-  links_encode: links_encode,
-  links_decode: links_decode,
-  data_encode: data_encode,
-  data_decode: data_decode
-};
-
-function data_encode$1(encoder_a, v) {
+function simpleData_encode(encoder_a, v) {
   return Js_dict.fromArray([[
                 "data",
-                Decco.arrayToJson(encoder_a, v.data)
+                Curry._1(encoder_a, v.data)
               ]]);
 }
 
-function data_decode$1(decoder_a, v) {
+function simpleData_decode(decoder_a, v) {
   var dict = Js_json.classify(v);
   if (typeof dict === "number") {
     return Decco.error(undefined, "Not an object", v);
@@ -416,7 +406,7 @@ function data_decode$1(decoder_a, v) {
   if (dict.TAG !== /* JSONObject */2) {
     return Decco.error(undefined, "Not an object", v);
   }
-  var data = Decco.arrayFromJson(decoder_a, Belt_Option.getWithDefault(Js_dict.get(dict._0, "data"), null));
+  var data = Curry._1(decoder_a, Belt_Option.getWithDefault(Js_dict.get(dict._0, "data"), null));
   if (!data.TAG) {
     return {
             TAG: 0,
@@ -437,6 +427,33 @@ function data_decode$1(decoder_a, v) {
           [Symbol.for("name")]: "Error"
         };
 }
+
+function arrayData_encode(encoder_a, v) {
+  return simpleData_encode((function (param) {
+                return Decco.arrayToJson(encoder_a, param);
+              }), v);
+}
+
+function arrayData_decode(decoder_a, v) {
+  return simpleData_decode((function (param) {
+                return Decco.arrayFromJson(decoder_a, param);
+              }), v);
+}
+
+var Common = {
+  pagination_encode: pagination_encode,
+  pagination_decode: pagination_decode,
+  meta_encode: meta_encode,
+  meta_decode: meta_decode,
+  links_encode: links_encode,
+  links_decode: links_decode,
+  data_encode: data_encode,
+  data_decode: data_decode,
+  simpleData_encode: simpleData_encode,
+  simpleData_decode: simpleData_decode,
+  arrayData_encode: arrayData_encode,
+  arrayData_decode: arrayData_decode
+};
 
 function t_decode$1(json) {
   return Belt_Result.flatMap(Decco.stringFromJson(json), (function (param) {
@@ -940,11 +957,15 @@ function t_encode$5(v) {
               ],
               [
                 "tags",
-                data_encode$1(tag_encode, v.tags)
+                simpleData_encode((function (param) {
+                        return Decco.arrayToJson(tag_encode, param);
+                      }), v.tags)
               ],
               [
                 "files",
-                data_encode$1(file_encode, v.files)
+                simpleData_encode((function (param) {
+                        return Decco.arrayToJson(file_encode, param);
+                      }), v.files)
               ]
             ]);
 }
@@ -1283,7 +1304,10 @@ function t_decode$5(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var tags = data_decode$1(tag_decode, Belt_Option.getWithDefault(Js_dict.get(dict$1, "tags"), null));
+  var v$1 = Belt_Option.getWithDefault(Js_dict.get(dict$1, "tags"), null);
+  var tags = simpleData_decode((function (param) {
+          return Decco.arrayFromJson(tag_decode, param);
+        }), v$1);
   if (tags.TAG) {
     var e$25 = tags._0;
     return {
@@ -1296,7 +1320,10 @@ function t_decode$5(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var files = data_decode$1(file_decode, Belt_Option.getWithDefault(Js_dict.get(dict$1, "files"), null));
+  var v$2 = Belt_Option.getWithDefault(Js_dict.get(dict$1, "files"), null);
+  var files = simpleData_decode((function (param) {
+          return Decco.arrayFromJson(file_decode, param);
+        }), v$2);
   if (!files.TAG) {
     return {
             TAG: 0,
@@ -1345,8 +1372,6 @@ function t_decode$5(v) {
 }
 
 var Podcast = {
-  data_encode: data_encode$1,
-  data_decode: data_decode$1,
   Type: Type,
   Privacy: Privacy,
   State: State,
@@ -1410,6 +1435,94 @@ var Podcasts = {
   get: get$1
 };
 
+function t_encode$7(v) {
+  return Js_dict.fromArray([
+              [
+                "description",
+                Decco.stringToJson(v.description)
+              ],
+              [
+                "html_description",
+                Decco.stringToJson(v.html_description)
+              ]
+            ]);
+}
+
+function t_decode$7(v) {
+  var dict = Js_json.classify(v);
+  if (typeof dict === "number") {
+    return Decco.error(undefined, "Not an object", v);
+  }
+  if (dict.TAG !== /* JSONObject */2) {
+    return Decco.error(undefined, "Not an object", v);
+  }
+  var dict$1 = dict._0;
+  var description = Decco.stringFromJson(Belt_Option.getWithDefault(Js_dict.get(dict$1, "description"), null));
+  if (description.TAG) {
+    var e = description._0;
+    return {
+            TAG: 1,
+            _0: {
+              path: ".description" + e.path,
+              message: e.message,
+              value: e.value
+            },
+            [Symbol.for("name")]: "Error"
+          };
+  }
+  var html_description = Decco.stringFromJson(Belt_Option.getWithDefault(Js_dict.get(dict$1, "html_description"), null));
+  if (!html_description.TAG) {
+    return {
+            TAG: 0,
+            _0: {
+              description: description._0,
+              html_description: html_description._0
+            },
+            [Symbol.for("name")]: "Ok"
+          };
+  }
+  var e$1 = html_description._0;
+  return {
+          TAG: 1,
+          _0: {
+            path: ".html_description" + e$1.path,
+            message: e$1.message,
+            value: e$1.value
+          },
+          [Symbol.for("name")]: "Error"
+        };
+}
+
+var Show = {
+  t_encode: t_encode$7,
+  t_decode: t_decode$7
+};
+
+function t_encode$8(v) {
+  return simpleData_encode(t_encode$7, v);
+}
+
+function t_decode$8(v) {
+  return simpleData_decode(t_decode$7, v);
+}
+
+function get$2(param) {
+  var url = "" + baseUrl + "/v1/shows/" + showId;
+  return $$Promise.flatMap(get(url), (function (prim) {
+                return prim.json();
+              }));
+}
+
+var SingleById = {
+  t_encode: t_encode$8,
+  t_decode: t_decode$8,
+  get: get$2
+};
+
+var Shows = {
+  SingleById: SingleById
+};
+
 export {
   baseUrl ,
   showId ,
@@ -1418,6 +1531,8 @@ export {
   Common ,
   Podcast ,
   Podcasts ,
+  Show ,
+  Shows ,
   
 }
 /* Promise Not a pure module */
