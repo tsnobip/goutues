@@ -95,6 +95,14 @@ module Common = {
   type arrayData('a) = simpleData(array('a));
 };
 
+module Link = {
+  [@decco]
+  type t = {
+    key: string,
+    url: string,
+  };
+};
+
 module Podcast = {
   module Type = {
     type t =
@@ -318,6 +326,8 @@ module Show = {
   type t = {
     description: string,
     html_description: string,
+    image_url: string,
+    links: Common.arrayData(Link.t),
   };
 };
 

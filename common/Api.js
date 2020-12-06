@@ -455,7 +455,70 @@ var Common = {
   arrayData_decode: arrayData_decode
 };
 
-function t_decode$1(json) {
+function t_encode$1(v) {
+  return Js_dict.fromArray([
+              [
+                "key",
+                Decco.stringToJson(v.key)
+              ],
+              [
+                "url",
+                Decco.stringToJson(v.url)
+              ]
+            ]);
+}
+
+function t_decode$1(v) {
+  var dict = Js_json.classify(v);
+  if (typeof dict === "number") {
+    return Decco.error(undefined, "Not an object", v);
+  }
+  if (dict.TAG !== /* JSONObject */2) {
+    return Decco.error(undefined, "Not an object", v);
+  }
+  var dict$1 = dict._0;
+  var key = Decco.stringFromJson(Belt_Option.getWithDefault(Js_dict.get(dict$1, "key"), null));
+  if (key.TAG) {
+    var e = key._0;
+    return {
+            TAG: 1,
+            _0: {
+              path: ".key" + e.path,
+              message: e.message,
+              value: e.value
+            },
+            [Symbol.for("name")]: "Error"
+          };
+  }
+  var url = Decco.stringFromJson(Belt_Option.getWithDefault(Js_dict.get(dict$1, "url"), null));
+  if (!url.TAG) {
+    return {
+            TAG: 0,
+            _0: {
+              key: key._0,
+              url: url._0
+            },
+            [Symbol.for("name")]: "Ok"
+          };
+  }
+  var e$1 = url._0;
+  return {
+          TAG: 1,
+          _0: {
+            path: ".url" + e$1.path,
+            message: e$1.message,
+            value: e$1.value
+          },
+          [Symbol.for("name")]: "Error"
+        };
+}
+
+var Link = {
+  t_encode: t_encode$1,
+  t_decode: t_decode$1
+};
+
+function t_decode$2(json) {
   return Belt_Result.flatMap(Decco.stringFromJson(json), (function (param) {
                 switch (param) {
                   case "bonus" :
@@ -482,7 +545,7 @@ function t_decode$1(json) {
               }));
 }
 
-function t_encode$1(t) {
+function t_encode$2(t) {
   var tmp;
   switch (t) {
     case /* Full */0 :
@@ -500,17 +563,17 @@ function t_encode$1(t) {
 }
 
 var codec$1 = [
-  t_encode$1,
-  t_decode$1
+  t_encode$2,
+  t_decode$2
 ];
 
 var Type = {
-  t_decode: t_decode$1,
-  t_encode: t_encode$1,
+  t_decode: t_decode$2,
+  t_encode: t_encode$2,
   codec: codec$1
 };
 
-function t_decode$2(json) {
+function t_decode$3(json) {
   return Belt_Result.flatMap(Decco.stringFromJson(json), (function (param) {
                 switch (param) {
                   case "private" :
@@ -537,7 +600,7 @@ function t_decode$2(json) {
               }));
 }
 
-function t_encode$2(t) {
+function t_encode$3(t) {
   var tmp;
   switch (t) {
     case /* Public */0 :
@@ -555,17 +618,17 @@ function t_encode$2(t) {
 }
 
 var codec$2 = [
-  t_encode$2,
-  t_decode$2
+  t_encode$3,
+  t_decode$3
 ];
 
 var Privacy = {
-  t_decode: t_decode$2,
-  t_encode: t_encode$2,
+  t_decode: t_decode$3,
+  t_encode: t_encode$3,
   codec: codec$2
 };
 
-function t_decode$3(json) {
+function t_decode$4(json) {
   return Belt_Result.flatMap(Decco.stringFromJson(json), (function (param) {
                 switch (param) {
                   case "active" :
@@ -612,23 +675,23 @@ function toString(param) {
   }
 }
 
-function t_encode$3(t) {
+function t_encode$4(t) {
   return Decco.stringToJson(toString(t));
 }
 
 var codec$3 = [
-  t_encode$3,
-  t_decode$3
+  t_encode$4,
+  t_decode$4
 ];
 
 var State = {
-  t_decode: t_decode$3,
+  t_decode: t_decode$4,
   toString: toString,
-  t_encode: t_encode$3,
+  t_encode: t_encode$4,
   codec: codec$3
 };
 
-function t_decode$4(json) {
+function t_decode$5(json) {
   return Belt_Result.flatMap(Decco.stringFromJson(json), (function (param) {
                 switch (param) {
                   case "facebook" :
@@ -655,7 +718,7 @@ function t_decode$4(json) {
               }));
 }
 
-function t_encode$4(t) {
+function t_encode$5(t) {
   var tmp;
   switch (t) {
     case /* Facebook */0 :
@@ -673,13 +736,13 @@ function t_encode$4(t) {
 }
 
 var codec$4 = [
-  t_encode$4,
-  t_decode$4
+  t_encode$5,
+  t_decode$5
 ];
 
 var AutoSharing = {
-  t_decode: t_decode$4,
-  t_encode: t_encode$4,
+  t_decode: t_decode$5,
+  t_encode: t_encode$5,
   codec: codec$4
 };
 
@@ -853,7 +916,7 @@ function file_decode(v) {
         };
 }
 
-function t_encode$5(v) {
+function t_encode$6(v) {
   return Js_dict.fromArray([
               [
                 "id",
@@ -865,7 +928,7 @@ function t_encode$5(v) {
               ],
               [
                 "type",
-                t_encode$1(v.type_)
+                t_encode$2(v.type_)
               ],
               [
                 "season_id",
@@ -897,7 +960,7 @@ function t_encode$5(v) {
               ],
               [
                 "privacy",
-                t_encode$2(v.privacy)
+                t_encode$3(v.privacy)
               ],
               [
                 "state",
@@ -941,7 +1004,7 @@ function t_encode$5(v) {
               ],
               [
                 "auto_sharing",
-                Decco.arrayToJson(t_encode$4, v.auto_sharing)
+                Decco.arrayToJson(t_encode$5, v.auto_sharing)
               ],
               [
                 "published_at",
@@ -970,7 +1033,7 @@ function t_encode$5(v) {
             ]);
 }
 
-function t_decode$5(v) {
+function t_decode$6(v) {
   var dict = Js_json.classify(v);
   if (typeof dict === "number") {
     return Decco.error(undefined, "Not an object", v);
@@ -1005,7 +1068,7 @@ function t_decode$5(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var type_ = t_decode$1(Belt_Option.getWithDefault(Js_dict.get(dict$1, "type"), null));
+  var type_ = t_decode$2(Belt_Option.getWithDefault(Js_dict.get(dict$1, "type"), null));
   if (type_.TAG) {
     var e$2 = type_._0;
     return {
@@ -1109,7 +1172,7 @@ function t_decode$5(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var privacy = t_decode$2(Belt_Option.getWithDefault(Js_dict.get(dict$1, "privacy"), null));
+  var privacy = t_decode$3(Belt_Option.getWithDefault(Js_dict.get(dict$1, "privacy"), null));
   if (privacy.TAG) {
     var e$10 = privacy._0;
     return {
@@ -1122,7 +1185,7 @@ function t_decode$5(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var state = t_decode$3(Belt_Option.getWithDefault(Js_dict.get(dict$1, "state"), null));
+  var state = t_decode$4(Belt_Option.getWithDefault(Js_dict.get(dict$1, "state"), null));
   if (state.TAG) {
     var e$11 = state._0;
     return {
@@ -1252,7 +1315,7 @@ function t_decode$5(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var auto_sharing = Decco.arrayFromJson(t_decode$4, Belt_Option.getWithDefault(Js_dict.get(dict$1, "auto_sharing"), null));
+  var auto_sharing = Decco.arrayFromJson(t_decode$5, Belt_Option.getWithDefault(Js_dict.get(dict$1, "auto_sharing"), null));
   if (auto_sharing.TAG) {
     var e$21 = auto_sharing._0;
     return {
@@ -1380,16 +1443,16 @@ var Podcast = {
   tag_decode: tag_decode,
   file_encode: file_encode,
   file_decode: file_decode,
-  t_encode: t_encode$5,
-  t_decode: t_decode$5
+  t_encode: t_encode$6,
+  t_decode: t_decode$6
 };
 
-function t_encode$6(v) {
-  return data_encode(t_encode$5, v);
+function t_encode$7(v) {
+  return data_encode(t_encode$6, v);
 }
 
-function t_decode$6(v) {
-  return data_decode(t_decode$5, v);
+function t_decode$7(v) {
+  return data_decode(t_decode$6, v);
 }
 
 function get$1(publicOpt, private_Opt, unlistedOpt, activeOpt, draftOpt, scheduledOpt, param) {
@@ -1430,12 +1493,12 @@ function get$1(publicOpt, private_Opt, unlistedOpt, activeOpt, draftOpt, schedul
 }
 
 var Podcasts = {
-  t_encode: t_encode$6,
-  t_decode: t_decode$6,
+  t_encode: t_encode$7,
+  t_decode: t_decode$7,
   get: get$1
 };
 
-function t_encode$7(v) {
+function t_encode$8(v) {
   return Js_dict.fromArray([
               [
                 "description",
@@ -1444,11 +1507,21 @@ function t_encode$7(v) {
               [
                 "html_description",
                 Decco.stringToJson(v.html_description)
+              ],
+              [
+                "image_url",
+                Decco.stringToJson(v.image_url)
+              ],
+              [
+                "links",
+                simpleData_encode((function (param) {
+                        return Decco.arrayToJson(t_encode$1, param);
+                      }), v.links)
               ]
             ]);
 }
 
-function t_decode$7(v) {
+function t_decode$8(v) {
   var dict = Js_json.classify(v);
   if (typeof dict === "number") {
     return Decco.error(undefined, "Not an object", v);
@@ -1471,39 +1544,70 @@ function t_decode$7(v) {
           };
   }
   var html_description = Decco.stringFromJson(Belt_Option.getWithDefault(Js_dict.get(dict$1, "html_description"), null));
-  if (!html_description.TAG) {
+  if (html_description.TAG) {
+    var e$1 = html_description._0;
+    return {
+            TAG: 1,
+            _0: {
+              path: ".html_description" + e$1.path,
+              message: e$1.message,
+              value: e$1.value
+            },
+            [Symbol.for("name")]: "Error"
+          };
+  }
+  var image_url = Decco.stringFromJson(Belt_Option.getWithDefault(Js_dict.get(dict$1, "image_url"), null));
+  if (image_url.TAG) {
+    var e$2 = image_url._0;
+    return {
+            TAG: 1,
+            _0: {
+              path: ".image_url" + e$2.path,
+              message: e$2.message,
+              value: e$2.value
+            },
+            [Symbol.for("name")]: "Error"
+          };
+  }
+  var v$1 = Belt_Option.getWithDefault(Js_dict.get(dict$1, "links"), null);
+  var links = simpleData_decode((function (param) {
+          return Decco.arrayFromJson(t_decode$1, param);
+        }), v$1);
+  if (!links.TAG) {
     return {
             TAG: 0,
             _0: {
               description: description._0,
-              html_description: html_description._0
+              html_description: html_description._0,
+              image_url: image_url._0,
+              links: links._0
             },
             [Symbol.for("name")]: "Ok"
           };
   }
-  var e$1 = html_description._0;
+  var e$3 = links._0;
   return {
           TAG: 1,
           _0: {
-            path: ".html_description" + e$1.path,
-            message: e$1.message,
-            value: e$1.value
+            path: ".links" + e$3.path,
+            message: e$3.message,
+            value: e$3.value
           },
           [Symbol.for("name")]: "Error"
         };
 }
 
 var Show = {
-  t_encode: t_encode$7,
-  t_decode: t_decode$7
+  t_encode: t_encode$8,
+  t_decode: t_decode$8
 };
 
-function t_encode$8(v) {
-  return simpleData_encode(t_encode$7, v);
+function t_encode$9(v) {
+  return simpleData_encode(t_encode$8, v);
 }
 
-function t_decode$8(v) {
-  return simpleData_decode(t_decode$7, v);
+function t_decode$9(v) {
+  return simpleData_decode(t_decode$8, v);
 }
 
 function get$2(param) {
@@ -1514,8 +1618,8 @@ function get$2(param) {
 }
 
 var SingleById = {
-  t_encode: t_encode$8,
-  t_decode: t_decode$8,
+  t_encode: t_encode$9,
+  t_decode: t_decode$9,
   get: get$2
 };
 
@@ -1529,6 +1633,7 @@ export {
   get ,
   IsoDate ,
   Common ,
+  Link ,
   Podcast ,
   Podcasts ,
   Show ,
