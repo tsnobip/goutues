@@ -1434,6 +1434,27 @@ function t_decode$6(v) {
         };
 }
 
+function t_encode$7(v) {
+  return simpleData_encode(t_encode$6, v);
+}
+
+function t_decode$7(v) {
+  return simpleData_decode(t_decode$6, v);
+}
+
+function get$1(public_id) {
+  var url = "" + baseUrl + "/v1/podcasts/public_id/" + public_id;
+  return $$Promise.flatMap(get(url), (function (prim) {
+                return prim.json();
+              }));
+}
+
+var SingleByPublicId = {
+  t_encode: t_encode$7,
+  t_decode: t_decode$7,
+  get: get$1
+};
+
 var Podcast = {
   Type: Type,
   Privacy: Privacy,
@@ -1444,18 +1465,19 @@ var Podcast = {
   file_encode: file_encode,
   file_decode: file_decode,
   t_encode: t_encode$6,
-  t_decode: t_decode$6
+  t_decode: t_decode$6,
+  SingleByPublicId: SingleByPublicId
 };
 
-function t_encode$7(v) {
+function t_encode$8(v) {
   return data_encode(t_encode$6, v);
 }
 
-function t_decode$7(v) {
+function t_decode$8(v) {
   return data_decode(t_decode$6, v);
 }
 
-function get$1(publicOpt, private_Opt, unlistedOpt, activeOpt, draftOpt, scheduledOpt, param) {
+function get$2(publicOpt, private_Opt, unlistedOpt, activeOpt, draftOpt, scheduledOpt, param) {
   var $$public = publicOpt !== undefined ? publicOpt : false;
   var private_ = private_Opt !== undefined ? private_Opt : false;
   var unlisted = unlistedOpt !== undefined ? unlistedOpt : false;
@@ -1493,12 +1515,12 @@ function get$1(publicOpt, private_Opt, unlistedOpt, activeOpt, draftOpt, schedul
 }
 
 var Podcasts = {
-  t_encode: t_encode$7,
-  t_decode: t_decode$7,
-  get: get$1
+  t_encode: t_encode$8,
+  t_decode: t_decode$8,
+  get: get$2
 };
 
-function t_encode$8(v) {
+function t_encode$9(v) {
   return Js_dict.fromArray([
               [
                 "description",
@@ -1521,7 +1543,7 @@ function t_encode$8(v) {
             ]);
 }
 
-function t_decode$8(v) {
+function t_decode$9(v) {
   var dict = Js_json.classify(v);
   if (typeof dict === "number") {
     return Decco.error(undefined, "Not an object", v);
@@ -1598,19 +1620,19 @@ function t_decode$8(v) {
 }
 
 var Show = {
-  t_encode: t_encode$8,
-  t_decode: t_decode$8
+  t_encode: t_encode$9,
+  t_decode: t_decode$9
 };
 
-function t_encode$9(v) {
-  return simpleData_encode(t_encode$8, v);
+function t_encode$10(v) {
+  return simpleData_encode(t_encode$9, v);
 }
 
-function t_decode$9(v) {
-  return simpleData_decode(t_decode$8, v);
+function t_decode$10(v) {
+  return simpleData_decode(t_decode$9, v);
 }
 
-function get$2(param) {
+function get$3(param) {
   var url = "" + baseUrl + "/v1/shows/" + showId;
   return $$Promise.flatMap(get(url), (function (prim) {
                 return prim.json();
@@ -1618,9 +1640,9 @@ function get$2(param) {
 }
 
 var SingleById = {
-  t_encode: t_encode$9,
-  t_decode: t_decode$9,
-  get: get$2
+  t_encode: t_encode$10,
+  t_decode: t_decode$10,
+  get: get$3
 };
 
 var Shows = {

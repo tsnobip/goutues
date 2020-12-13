@@ -9,7 +9,7 @@ let default = ({episods}: props) =>
   | Result.Error(e) =>
     Js.Console.error2("an error occurred while loading the podcasts", e);
     <div>
-      <h1> {|Ouups !!|}->s </h1>
+      <h1> {js|Ouups !!|js}->s </h1>
       <p>
         {js|Il y a eu une erreur lors de la récupération des épisodes, veuillez réessayer.|js}
         ->s

@@ -5,13 +5,13 @@ import Link from "next/link";
 
 function MainLayout$Navigation(Props) {
   return React.createElement("nav", {
-              className: "p-2 h-12 flex border-b border-gray-200 justify-between items-center text-m"
+              className: "py-2 mt-2 pb-5 h-12 flex border-b-2 border-yellow justify-between items-center text-lg"
             }, React.createElement(Link, {
                   href: "/",
                   children: React.createElement("a", {
                         className: "flex items-center w-1/3"
                       }, React.createElement("span", {
-                            className: "text-orange-800 ml-2 text-4xl font-semibold font-wildy"
+                            className: "text-orange-800 ml-2 text-5xl font-semibold font-wildy"
                           }, "Goutues"))
                 }), React.createElement("div", {
                   className: "flex w-2/3 justify-end"

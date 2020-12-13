@@ -4,11 +4,11 @@ module Navigation = {
   [@react.component]
   let make = () =>
     <nav
-      className="p-2 h-12 flex border-b border-gray-200 justify-between items-center text-m">
+      className="py-2 mt-2 pb-5 h-12 flex border-b-2 border-yellow justify-between items-center text-lg">
       <Link href="/">
         <a className="flex items-center w-1/3">
           <span
-            className="text-orange-800 ml-2 text-4xl font-semibold font-wildy">
+            className="text-orange-800 ml-2 text-5xl font-semibold font-wildy">
             {React.string({js|Goutues|js})}
           </span>
         </a>

@@ -11,14 +11,16 @@ function $$default(props) {
   var router = Router.useRouter();
   var content = React.createElement(props.Component, props.pageProps);
   var match = router.route;
-  if (match === "/episodes") {
-    return React.createElement(MainLayout.make, {
-                children: content
-              });
-  } else {
-    return React.createElement(MainLayout.make, {
-                children: content
-              });
+  switch (match) {
+    case "/episode" :
+    case "/episodes" :
+        return React.createElement(MainLayout.make, {
+                    children: content
+                  });
+    default:
+      return React.createElement(MainLayout.make, {
+                  children: content
+                });
   }
 }
 

@@ -9,7 +9,7 @@ module P = {
 type props = {show: Js.Json.t};
 
 module Player = {
-  let code = {js|<iframe frameborder="0" loading="lazy" id="ausha-stoy" height="420" style="border: none; width:100%; height:420px" src="https://player.ausha.co/index.html?showId=od2PjTvjJpwV&color=%239b4d1c&multishow=true&playlist=true&v=3&playerId=ausha-stoy"></iframe><script src="https://player.ausha.co/ausha-player.js"></script>|js};
+  let code = {js|<iframe frameborder="0" loading="lazy" id="ausha-Q0Lh" height="420" style="border: none; width:100%; height:420px" src="https://player.ausha.co/index.html?showId=od2PjTvjJpwV&color=%239b4d1c&playlist=true&v=3&playerId=ausha-Q0Lh"></iframe><script src="https://player.ausha.co/ausha-player.js"></script>|js};
 
   [@react.component]
   let make = () =>
@@ -29,7 +29,7 @@ let default = ({show}: props) =>
   | Result.Ok({data: {html_description, image_url, links: {data: links}}}) =>
     <div className="flex flex-col">
       <div className="justify-center my-5">
-        <div className="text-3xl font-bold text-center">
+        <div className="text-3xl font-bold text-center text-gray-800">
           {js|Retrouvez-nous sur toutes ces plateformes|js}->s
         </div>
         <div className="flex flex-row justify-center my-5">
@@ -48,7 +48,7 @@ let default = ({show}: props) =>
       </div>
       <div className="flex flex-col lg:flex-row items-center px-3">
         <div
-          className="flex-grow  lg:mr-20 text-justify"
+          className="flex-grow  lg:mr-20 text-justify text-gray-800"
           dangerouslySetInnerHTML={"__html": html_description}
         />
         <img

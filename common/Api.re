@@ -271,6 +271,15 @@ module Podcast = {
     tags: Common.arrayData(tag),
     files: Common.arrayData(file),
   };
+
+  module SingleByPublicId = {
+    [@decco]
+    type nonrec t = Common.simpleData(t);
+    let get = (public_id: string): Promise.t(Js.Json.t) => {
+      let url = {j|$baseUrl/v1/podcasts/public_id/$public_id|j};
+      get(url)->Promise.flatMap(Fetch.json);
+    };
+  };
 };
 
 module Podcasts = {

@@ -19,7 +19,7 @@ function Index$Player(Props) {
   return React.createElement("div", {
               className: "mt-5",
               dangerouslySetInnerHTML: {
-                __html: "<iframe frameborder=\"0\" loading=\"lazy\" id=\"ausha-stoy\" height=\"420\" style=\"border: none; width:100%; height:420px\" src=\"https://player.ausha.co/index.html?showId=od2PjTvjJpwV&color=%239b4d1c&multishow=true&playlist=true&v=3&playerId=ausha-stoy\"></iframe><script src=\"https://player.ausha.co/ausha-player.js\"></script>"
+                __html: "<iframe frameborder=\"0\" loading=\"lazy\" id=\"ausha-Q0Lh\" height=\"420\" style=\"border: none; width:100%; height:420px\" src=\"https://player.ausha.co/index.html?showId=od2PjTvjJpwV&color=%239b4d1c&playlist=true&v=3&playerId=ausha-Q0Lh\"></iframe><script src=\"https://player.ausha.co/ausha-player.js\"></script>"
               }
             });
 }
@@ -57,7 +57,7 @@ function $$default(param) {
             }, React.createElement("div", {
                   className: "justify-center my-5"
                 }, React.createElement("div", {
-                      className: "text-3xl font-bold text-center"
+                      className: "text-3xl font-bold text-center text-gray-800"
                     }, Utils.s("Retrouvez-nous sur toutes ces plateformes")), React.createElement("div", {
                       className: "flex flex-row justify-center my-5"
                     }, Belt_Array.keepMap(match.links.data, (function (param) {
@@ -77,7 +77,7 @@ function $$default(param) {
                           })))), React.createElement("div", {
                   className: "flex flex-col lg:flex-row items-center px-3"
                 }, React.createElement("div", {
-                      className: "flex-grow  lg:mr-20 text-justify",
+                      className: "flex-grow  lg:mr-20 text-justify text-gray-800",
                       dangerouslySetInnerHTML: {
                         __html: match.html_description
                       }

@@ -28,6 +28,7 @@ let default = (props: props): React.element => {
   let content = React.createElement(component, pageProps);
 
   switch (router.route) {
+  | "/episode" => <MainLayout> content </MainLayout>
   | "/episodes" => <MainLayout> content </MainLayout>
   | _ => <MainLayout> content </MainLayout>
   };

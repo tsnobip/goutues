@@ -20,7 +20,7 @@ function $$default(param) {
                     })));
   }
   console.error("an error occurred while loading the podcasts", e._0);
-  return React.createElement("div", undefined, React.createElement("h1", undefined, Utils.s("Ouups\xc2\xa0!!")), React.createElement("p", undefined, Utils.s("Il y a eu une erreur lors de la récupération des épisodes, veuillez réessayer.")));
+  return React.createElement("div", undefined, React.createElement("h1", undefined, Utils.s("Ouups !!")), React.createElement("p", undefined, Utils.s("Il y a eu une erreur lors de la récupération des épisodes, veuillez réessayer.")));
 }
 
 function getServerSideProps(_ctx) {
