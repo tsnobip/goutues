@@ -12,7 +12,7 @@ function EpisodCard(Props) {
   return React.createElement(Link, {
               href: "/episode/" + param.public_id,
               children: React.createElement("a", {
-                    className: "max-w-sm rounded-xl overflow-hidden m-5 flex flex-col items-center bg-gray-200 shadow-2xl"
+                    className: "max-w-sm rounded-xl overflow-hidden flex flex-col items-center bg-gray-200 shadow-2xl"
                   }, React.createElement("img", {
                         className: "object-contain",
                         src: Belt_Option.getWithDefault(param.image_url, defaultImage)

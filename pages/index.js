@@ -75,9 +75,9 @@ function $$default(param) {
                                 return ;
                             }
                           })))), React.createElement("div", {
-                  className: "flex flex-col lg:flex-row items-center px-3"
+                  className: "flex flex-col lg:flex-row items-center px-2"
                 }, React.createElement("div", {
-                      className: "flex-grow  lg:mr-20 text-justify text-gray-800",
+                      className: "flex-grow space-y-5 lg:mr-20 text-justify text-gray-800",
                       dangerouslySetInnerHTML: {
                         __html: match.html_description
                       }
