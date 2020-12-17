@@ -46,7 +46,7 @@ let default = ({show}: props) =>
            ->React.array}
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center px-3">
+      <div className="flex flex-col lg:flex-row items-center px-2">
         <div
           className="flex-grow  lg:mr-20 text-justify text-gray-800"
           dangerouslySetInnerHTML={"__html": html_description}

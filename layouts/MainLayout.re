@@ -4,11 +4,10 @@ module Navigation = {
   [@react.component]
   let make = () =>
     <nav
-      className="py-2 mt-2 pb-5 h-12 flex border-b-2 border-yellow justify-between items-center text-lg">
+      className="px-2 py-2 mt-2 pb-5 h-12 flex border-b-2 border-yellow justify-between items-center text-lg">
       <Link href="/">
         <a className="flex items-center w-1/3">
-          <span
-            className="text-orange-800 ml-2 text-5xl font-semibold font-wildy">
+          <span className="text-orange-800 text-5xl font-semibold font-wildy">
             {React.string({js|Goutues|js})}
           </span>
         </a>
@@ -52,7 +51,7 @@ let make = (~children) => {
   <div style=minWidth className="flex lg:justify-center">
     <div className="max-w-5xl w-full lg:w-3/4 text-gray-900 font-base">
       <Navigation />
-      <main className="mt-4 mx-4"> children </main>
+      <main className="mt-4"> children </main>
     </div>
   </div>;
 };

@@ -8,7 +8,7 @@ let make =
     (~episod as {name, image_url, published_at, public_id}: Api.Podcast.t) => {
   <Next.Link href={j|/episode/$public_id|j}>
     <a
-      className="max-w-sm rounded-xl overflow-hidden m-5 flex flex-col items-center bg-gray-200 shadow-2xl">
+      className="max-w-sm rounded-xl overflow-hidden flex flex-col items-center bg-gray-200 shadow-2xl">
       <img
         className="object-contain"
         src={image_url->Option.getWithDefault(defaultImage)}

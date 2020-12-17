@@ -11,7 +11,7 @@ function $$default(param) {
   var e = Api.Podcasts.t_decode(param.episods);
   if (!e.TAG) {
     return React.createElement("div", {
-                className: "justify-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                className: "justify-items-center p-2 gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
               }, Belt_Array.map(Belt_Array.reverse(e._0.data), (function (episod) {
                       return React.createElement(EpisodCard.make, {
                                   episod: episod,
