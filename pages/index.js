@@ -28,7 +28,7 @@ function Index$Icon(Props) {
   var src = Props.src;
   var url = Props.url;
   return React.createElement("a", {
-              className: "w-16 m-2",
+              className: "w-16 m-2 hover:opacity-75",
               href: url,
               target: "_blank"
             }, React.createElement("img", {
@@ -36,10 +36,11 @@ function Index$Icon(Props) {
                 }));
 }
 
-function makeIcon(src, url) {
+function makeIcon(src, url, key) {
   return Caml_option.some(React.createElement(Index$Icon, {
                   src: src,
-                  url: url
+                  url: url,
+                  key: key
                 }));
 }
 
@@ -57,32 +58,33 @@ function $$default(param) {
             }, React.createElement("div", {
                   className: "justify-center my-5"
                 }, React.createElement("div", {
-                      className: "text-3xl font-bold text-center text-gray-800"
+                      className: "text-3xl font-display font-bold text-center text-gray-800"
                     }, Utils.s("Retrouvez-nous sur toutes ces plateformes")), React.createElement("div", {
                       className: "flex flex-row justify-center my-5"
                     }, Belt_Array.keepMap(match.links.data, (function (param) {
                             var url = param.url;
-                            switch (param.key) {
+                            var key = param.key;
+                            switch (key) {
                               case "deezer" :
-                                  return makeIcon("static/deezer.svg", url);
+                                  return makeIcon("static/deezer.svg", url, key);
                               case "itunes" :
-                                  return makeIcon("static/apple-podcasts.png", url);
+                                  return makeIcon("static/apple-podcasts.png", url, key);
                               case "soundcloud" :
-                                  return makeIcon("static/soundcloud.svg", url);
+                                  return makeIcon("static/soundcloud.svg", url, key);
                               case "spotify" :
-                                  return makeIcon("static/spotify.svg", url);
+                                  return makeIcon("static/spotify.svg", url, key);
                               default:
                                 return ;
                             }
                           })))), React.createElement("div", {
-                  className: "flex flex-col lg:flex-row items-center px-2"
+                  className: "flex flex-col md:flex-row items-center px-2"
                 }, React.createElement("div", {
-                      className: "flex-grow space-y-5 lg:mr-20 text-justify text-gray-800",
+                      className: "flex-shrink space-y-5 my-5 md:w-2/3 md:my-0 md:mr-12 text-justify text-gray-800",
                       dangerouslySetInnerHTML: {
                         __html: match.html_description
                       }
                     }), React.createElement("img", {
-                      className: "object-contain bg-red-500 flex-shrink w-full lg:w-auto",
+                      className: "object-contain bg-red-500 flex-1 md:w-1/3 max-w-lg",
                       src: match.image_url
                     })), React.createElement(Index$Player, {}));
 }

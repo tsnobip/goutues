@@ -8,13 +8,13 @@ let make =
     (~episod as {name, image_url, published_at, public_id}: Api.Podcast.t) => {
   <Next.Link href={j|/episode/$public_id|j}>
     <a
-      className="max-w-sm rounded-xl overflow-hidden flex flex-col items-center bg-gray-200 shadow-2xl">
+      className="max-w-sm rounded-xl overflow-hidden flex flex-col items-center bg-gray-200 shadow-2xl hover:opacity-75">
       <img
         className="object-contain"
         src={image_url->Option.getWithDefault(defaultImage)}
       />
-      <div className="flex-auto p-2">
-        <div className="text-gray-500 capitalize">
+      <div className="flex-auto p-4">
+        <div className="text-gray-500 capitalize font-display">
           {published_at->Api.IsoDate.toMonthAndYearShortString->s}
         </div>
         <div className="text-gray-700"> name->s </div>

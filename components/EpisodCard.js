@@ -12,14 +12,14 @@ function EpisodCard(Props) {
   return React.createElement(Link, {
               href: "/episode/" + param.public_id,
               children: React.createElement("a", {
-                    className: "max-w-sm rounded-xl overflow-hidden flex flex-col items-center bg-gray-200 shadow-2xl"
+                    className: "max-w-sm rounded-xl overflow-hidden flex flex-col items-center bg-gray-200 shadow-2xl hover:opacity-75"
                   }, React.createElement("img", {
                         className: "object-contain",
                         src: Belt_Option.getWithDefault(param.image_url, defaultImage)
                       }), React.createElement("div", {
-                        className: "flex-auto p-2"
+                        className: "flex-auto p-4"
                       }, React.createElement("div", {
-                            className: "text-gray-500 capitalize"
+                            className: "text-gray-500 capitalize font-display"
                           }, Utils.s(param.published_at.toLocaleDateString(undefined, {month: 'short', year: 'numeric'}))), React.createElement("div", {
                             className: "text-gray-700"
                           }, Utils.s(param.name))))

@@ -18,3 +18,5 @@ Example of using a google font as a self hosted .woff file
   font-family: 'Wildy-Sans';
   src: local('Wildy-Sans'), url(/static/fonts/Wildy-Sans.otf) format('opentype');
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=PT+Sans&display=swap');

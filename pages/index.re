@@ -19,40 +19,45 @@ module Player = {
 module Icon = {
   [@react.component]
   let make = (~src, ~url) =>
-    <a target="_blank" className="w-16 m-2" href=url> <img src /> </a>;
+    <a target="_blank" className="w-16 m-2 hover:opacity-75" href=url>
+      <img src />
+    </a>;
 };
 
-let makeIcon = (~src, ~url) => Some(<Icon src url />);
+let makeIcon = (~src, ~url, ~key) => Some(<Icon src url key />);
 
 let default = ({show}: props) =>
   switch (show->Api.Shows.SingleById.t_decode) {
   | Result.Ok({data: {html_description, image_url, links: {data: links}}}) =>
     <div className="flex flex-col">
       <div className="justify-center my-5">
-        <div className="text-3xl font-bold text-center text-gray-800">
+        <div
+          className="text-3xl font-display font-bold text-center text-gray-800">
           {js|Retrouvez-nous sur toutes ces plateformes|js}->s
         </div>
         <div className="flex flex-row justify-center my-5">
           {links
            ->Array.keepMap(({key, url}) =>
                switch (key) {
-               | "itunes" => makeIcon(~src="static/apple-podcasts.png", ~url)
-               | "spotify" => makeIcon(~src="static/spotify.svg", ~url)
-               | "deezer" => makeIcon(~src="static/deezer.svg", ~url)
-               | "soundcloud" => makeIcon(~src="static/soundcloud.svg", ~url)
+               | "itunes" =>
+                 makeIcon(~src="static/apple-podcasts.png", ~url, ~key)
+               | "spotify" => makeIcon(~src="static/spotify.svg", ~url, ~key)
+               | "deezer" => makeIcon(~src="static/deezer.svg", ~url, ~key)
+               | "soundcloud" =>
+                 makeIcon(~src="static/soundcloud.svg", ~url, ~key)
                | _ => None
                }
              )
            ->React.array}
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center px-2">
+      <div className="flex flex-col md:flex-row items-center px-2">
         <div
-          className="flex-grow space-y-5 lg:mr-20 text-justify text-gray-800"
+          className="flex-shrink space-y-5 my-5 md:w-2/3 md:my-0 md:mr-12 text-justify text-gray-800"
           dangerouslySetInnerHTML={"__html": html_description}
         />
         <img
-          className="object-contain bg-red-500 flex-shrink w-full lg:w-auto"
+          className="object-contain bg-red-500 flex-1 md:w-1/3 max-w-lg"
           src=image_url
         />
       </div>
