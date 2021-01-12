@@ -42,10 +42,5 @@
     "-bs-no-version-header",
     "-bs-super-errors",
     "-bs-g"
-  ],
-  "gentypeconfig": {
-    "language": "untyped",
-    "shims": [],
-    "module": "es6"
-  }
+  ]
 }
