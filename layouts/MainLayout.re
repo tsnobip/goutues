@@ -3,7 +3,9 @@ module Link = Next.Link;
 module Icon = {
   [@react.component]
   let make = (~link as href, ~children) => {
-    <a className="px-1 hover:opacity-75" target="_blank" href> children </a>;
+    <a className="px-1 opacity-75 hover:opacity-50" target="_blank" href>
+      children
+    </a>;
   };
 };
 
@@ -11,10 +13,10 @@ module Navigation = {
   [@react.component]
   let make = () =>
     <nav
-      className="px-2 py-2 mt-2 pb-5 h-12 flex border-b-2 border-yellow justify-between items-center text-lg">
+      className="px-2 py-1 flex border-b-4 mb-10 border-yellow justify-between items-center text-lg">
       <Link href="/">
         <a className="flex items-center w-1/3">
-          <span className="text-orange-800 text-5xl font-semibold font-logo">
+          <span className="text-brown text-5xl font-semibold font-logo">
             {React.string({js|Goutues|js})}
           </span>
         </a>
@@ -44,7 +46,7 @@ module Navigation = {
 let make = (~children) => {
   let minWidth = ReactDOMRe.Style.make(~minWidth="20rem", ());
   <div style=minWidth className="flex lg:justify-center">
-    <div className="max-w-5xl w-full lg:w-3/4 text-gray-900 font-base">
+    <div className="max-w-5xl w-full lg:w-3/4 text-gray-700 font-base">
       <Navigation />
       <main className="my-4"> children </main>
     </div>

@@ -28,7 +28,7 @@ function Index$Icon(Props) {
   var src = Props.src;
   var url = Props.url;
   return React.createElement("a", {
-              className: "w-16 m-2 hover:opacity-75",
+              className: "w-16 m-2 opacity-75 hover:opacity-50 text-red-500",
               href: url,
               target: "_blank"
             }, React.createElement("img", {
@@ -58,7 +58,7 @@ function $$default(param) {
             }, React.createElement("div", {
                   className: "justify-center my-5"
                 }, React.createElement("div", {
-                      className: "text-3xl font-display font-bold text-center text-gray-800"
+                      className: "text-3xl mx-5 font-display font-bold text-center text-gray-700"
                     }, Utils.s("Retrouvez-nous sur toutes ces plateformes")), React.createElement("div", {
                       className: "flex flex-row justify-center my-5"
                     }, Belt_Array.keepMap(match.links.data, (function (param) {
@@ -77,15 +77,15 @@ function $$default(param) {
                                 return ;
                             }
                           })))), React.createElement("div", {
-                  className: "flex flex-col md:flex-row items-center px-2"
-                }, React.createElement("div", {
-                      className: "flex-shrink space-y-5 my-5 md:w-2/3 md:my-0 md:mr-12 text-justify text-gray-800",
+                  className: "flex flex-col md:flex-row-reverse items-center px-2"
+                }, React.createElement("img", {
+                      className: "bg-red-500 md:w-1/3 max-w-lg",
+                      src: match.image_url
+                    }), React.createElement("div", {
+                      className: "space-y-5 mx-2 md:mx-0 my-10 md:my-5 md:w-2/3 md:mr-12 text-justify text-gray-700",
                       dangerouslySetInnerHTML: {
                         __html: match.html_description
                       }
-                    }), React.createElement("img", {
-                      className: "object-contain bg-red-500 flex-1 md:w-1/3 max-w-lg",
-                      src: match.image_url
                     })), React.createElement(Index$Player, {}));
 }
 
