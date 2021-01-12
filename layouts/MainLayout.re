@@ -15,18 +15,19 @@ module Navigation = {
     <nav
       className="px-2 py-1 flex border-b-4 mb-10 border-yellow justify-between items-center text-lg">
       <Link href="/">
-        <a className="flex items-center w-1/3">
-          <span className="text-brown text-5xl font-semibold font-logo">
+        <a className="flex items-center">
+          <span
+            className="text-brown text-4xl md:text-5xl font-semibold font-logo">
             {React.string({js|Goutues|js})}
           </span>
         </a>
       </Link>
-      <div className="flex w-2/3 justify-end">
-        <Link href="/episodes">
-          <a className="px-3 font-display hover:opacity-75">
-            {React.string({js|Épisodes|js})}
-          </a>
-        </Link>
+      <div className="flex items-end">
+        <div className="px-3 font-display hover:opacity-75">
+          <Link href="/episodes">
+            <a> {React.string({js|Épisodes|js})} </a>
+          </Link>
+        </div>
         <div className="flex flex-row items-center">
           <Icon link="https://facebook.com/goutues">
             <img className="h-6" src="/static/ri-facebook-circle-line.svg" />

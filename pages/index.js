@@ -79,7 +79,7 @@ function $$default(param) {
                           })))), React.createElement("div", {
                   className: "flex flex-col md:flex-row-reverse items-center px-2"
                 }, React.createElement("img", {
-                      className: "bg-red-500 md:w-1/3 max-w-lg",
+                      className: "md:w-1/3 md:max-w-lg",
                       src: match.image_url
                     }), React.createElement("div", {
                       className: "space-y-5 mx-2 md:mx-0 my-10 md:my-5 md:w-2/3 md:mr-12 text-justify text-gray-700",

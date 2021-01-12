@@ -3,7 +3,7 @@
 @import "./_fonts.css";
 body {
   @apply font-sans;
-  @apply bg-gray-200;
+  @apply bg-gray-100;
 }
 
 @tailwind utilities;

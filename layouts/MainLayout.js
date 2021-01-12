@@ -23,18 +23,18 @@ function MainLayout$Navigation(Props) {
             }, React.createElement(Link, {
                   href: "/",
                   children: React.createElement("a", {
-                        className: "flex items-center w-1/3"
+                        className: "flex items-center"
                       }, React.createElement("span", {
-                            className: "text-brown text-5xl font-semibold font-logo"
+                            className: "text-brown text-4xl md:text-5xl font-semibold font-logo"
                           }, "Goutues"))
                 }), React.createElement("div", {
-                  className: "flex w-2/3 justify-end"
-                }, React.createElement(Link, {
-                      href: "/episodes",
-                      children: React.createElement("a", {
-                            className: "px-3 font-display hover:opacity-75"
-                          }, "Épisodes")
-                    }), React.createElement("div", {
+                  className: "flex items-end"
+                }, React.createElement("div", {
+                      className: "px-3 font-display hover:opacity-75"
+                    }, React.createElement(Link, {
+                          href: "/episodes",
+                          children: React.createElement("a", undefined, "Épisodes")
+                        })), React.createElement("div", {
                       className: "flex flex-row items-center"
                     }, React.createElement(MainLayout$Icon, {
                           link: "https://facebook.com/goutues",
