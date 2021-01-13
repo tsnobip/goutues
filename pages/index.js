@@ -57,7 +57,7 @@ function $$default(param) {
   }
   var match = error._0.data;
   var image_url = match.image_url;
-  var html_description = match.html_description;
+  var description = match.description;
   return React.createElement("div", {
               className: "flex flex-col"
             }, React.createElement(Head, {
@@ -68,7 +68,7 @@ function $$default(param) {
                     }), React.createElement("meta", {
                       charSet: "utf-8"
                     }), React.createElement("meta", {
-                      content: html_description,
+                      content: description,
                       name: "description"
                     }), React.createElement("meta", {
                       key: "ogtitle",
@@ -84,7 +84,7 @@ function $$default(param) {
                       property: "og:site_name"
                     }), React.createElement("meta", {
                       key: "ogdesc",
-                      content: html_description,
+                      content: description,
                       property: "og:description"
                     }), React.createElement("meta", {
                       key: "twcard",
@@ -119,7 +119,7 @@ function $$default(param) {
                     }), React.createElement("div", {
                       className: "space-y-5 mx-2 md:mx-0 my-10 md:my-5 md:w-2/3 md:mr-12 text-justify text-gray-700",
                       dangerouslySetInnerHTML: {
-                        __html: html_description
+                        __html: match.html_description
                       }
                     })), React.createElement(Index$Player, {}));
 }

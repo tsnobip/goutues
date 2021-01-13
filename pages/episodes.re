@@ -21,7 +21,7 @@ let default = ({episods, show}: props) =>
     </div>;
   | (
       Result.Ok({data: episods}),
-      Result.Ok({data: {html_description, image_url}}),
+      Result.Ok({data: {description, image_url}}),
     ) =>
     let title = {js|Goûtues - Épisodes|js};
     <div
@@ -30,7 +30,7 @@ let default = ({episods, show}: props) =>
         <title> {s(title)} </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta name="description" content=html_description />
+        <meta name="description" content=description />
         <meta property="og:title" content=title key="ogtitle" />
         <meta property="og:image" content=image_url key="ogimage" />
         <meta
@@ -38,11 +38,7 @@ let default = ({episods, show}: props) =>
           content=Index.siteName
           key="ogsitename"
         />
-        <meta
-          property="og:description"
-          content=html_description
-          key="ogdesc"
-        />
+        <meta property="og:description" content=description key="ogdesc" />
         <meta name="twitter:card" content="summary" key="twcard" />
       </Next.Head>
       {episods

@@ -30,6 +30,7 @@ function $$default(param) {
   var match = e._0.data;
   var image_url = match.image_url;
   var html_description = match.html_description;
+  var description = match.description;
   var name = match.name;
   return React.createElement("div", undefined, React.createElement(Head, {
                   children: null
@@ -38,12 +39,12 @@ function $$default(param) {
                       name: "viewport"
                     }), React.createElement("meta", {
                       charSet: "utf-8"
-                    }), html_description !== undefined ? React.createElement(React.Fragment, undefined, React.createElement("meta", {
-                            content: html_description,
+                    }), description !== undefined ? React.createElement(React.Fragment, undefined, React.createElement("meta", {
+                            content: description,
                             name: "description"
                           }), React.createElement("meta", {
                             key: "ogdesc",
-                            content: html_description,
+                            content: description,
                             property: "og:description"
                           })) : null, React.createElement("meta", {
                       key: "ogtitle",

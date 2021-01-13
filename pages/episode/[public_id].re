@@ -24,20 +24,22 @@ let default = ({episod}: props) =>
         ->s
       </p>
     </div>;
-  | Result.Ok({data: {html_description, name, image_url, public_id}}) =>
+  | Result.Ok({
+      data: {html_description, description, name, image_url, public_id},
+    }) =>
     let title = name;
     <div>
       <Next.Head>
         <title> {s(title)} </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        {switch (html_description) {
-         | Some(html_description) =>
+        {switch (description) {
+         | Some(description) =>
            <>
-             <meta name="description" content=html_description />
+             <meta name="description" content=description />
              <meta
                property="og:description"
-               content=html_description
+               content=description
                key="ogdesc"
              />
            </>

@@ -20,7 +20,7 @@ function $$default(param) {
     e = match$1._0;
   } else {
     var match$2 = match$1._0.data;
-    var html_description = match$2.html_description;
+    var description = match$2.description;
     var title = "Goûtues - Épisodes";
     return React.createElement("div", {
                 className: "justify-items-center p-2 gap-5 md:gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
@@ -32,7 +32,7 @@ function $$default(param) {
                       }), React.createElement("meta", {
                         charSet: "utf-8"
                       }), React.createElement("meta", {
-                        content: html_description,
+                        content: description,
                         name: "description"
                       }), React.createElement("meta", {
                         key: "ogtitle",
@@ -48,7 +48,7 @@ function $$default(param) {
                         property: "og:site_name"
                       }), React.createElement("meta", {
                         key: "ogdesc",
-                        content: html_description,
+                        content: description,
                         property: "og:description"
                       }), React.createElement("meta", {
                         key: "twcard",
