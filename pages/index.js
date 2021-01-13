@@ -5,6 +5,7 @@ import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as Utils from "../common/Utils.js";
 import * as React from "react";
 import * as $$Promise from "reason-promise/src/js/promise.js";
+import Head from "next/head";
 import * as Belt_Array from "bs-platform/lib/es6/belt_Array.js";
 import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 
@@ -44,6 +45,8 @@ function makeIcon(src, url, key) {
                 }));
 }
 
+var siteName = "Goûtues - Podcast";
+
 function $$default(param) {
   var error = Curry._1(Api.Shows.SingleById.t_decode, param.show);
   if (error.TAG) {
@@ -53,9 +56,41 @@ function $$default(param) {
               });
   }
   var match = error._0.data;
+  var image_url = match.image_url;
+  var html_description = match.html_description;
   return React.createElement("div", {
               className: "flex flex-col"
-            }, React.createElement("div", {
+            }, React.createElement(Head, {
+                  children: null
+                }, React.createElement("title", undefined, Utils.s(siteName)), React.createElement("meta", {
+                      content: "width=device-width, initial-scale=1",
+                      name: "viewport"
+                    }), React.createElement("meta", {
+                      charSet: "utf-8"
+                    }), React.createElement("meta", {
+                      content: html_description,
+                      name: "description"
+                    }), React.createElement("meta", {
+                      key: "ogtitle",
+                      content: siteName,
+                      property: "og:title"
+                    }), React.createElement("meta", {
+                      key: "ogimage",
+                      content: image_url,
+                      property: "og:image"
+                    }), React.createElement("meta", {
+                      key: "ogsitename",
+                      content: siteName,
+                      property: "og:site_name"
+                    }), React.createElement("meta", {
+                      key: "ogdesc",
+                      content: html_description,
+                      property: "og:description"
+                    }), React.createElement("meta", {
+                      key: "twcard",
+                      content: "summary",
+                      name: "twitter:card"
+                    })), React.createElement("div", {
                   className: "justify-center my-5"
                 }, React.createElement("div", {
                       className: "text-3xl mx-5 font-display font-bold text-center text-gray-700"
@@ -80,11 +115,11 @@ function $$default(param) {
                   className: "flex flex-col md:flex-row-reverse items-center px-2"
                 }, React.createElement("img", {
                       className: "md:w-1/3 md:max-w-lg",
-                      src: match.image_url
+                      src: image_url
                     }), React.createElement("div", {
                       className: "space-y-5 mx-2 md:mx-0 my-10 md:my-5 md:w-2/3 md:mr-12 text-justify text-gray-700",
                       dangerouslySetInnerHTML: {
-                        __html: match.html_description
+                        __html: html_description
                       }
                     })), React.createElement(Index$Player, {}));
 }
@@ -102,6 +137,7 @@ function getServerSideProps(_ctx) {
 export {
   $$default ,
   $$default as default,
+  siteName ,
   getServerSideProps ,
   
 }

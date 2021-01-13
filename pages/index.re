@@ -29,10 +29,28 @@ module Icon = {
 
 let makeIcon = (~src, ~url, ~key) => Some(<Icon src url key />);
 
+let siteName = {js|Goûtues - Podcast|js};
+
 let default = ({show}: props) =>
   switch (show->Api.Shows.SingleById.t_decode) {
   | Result.Ok({data: {html_description, image_url, links: {data: links}}}) =>
+    let title = siteName;
     <div className="flex flex-col">
+      <Next.Head>
+        <title> {s(title)} </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta name="description" content=html_description />
+        <meta property="og:title" content=title key="ogtitle" />
+        <meta property="og:image" content=image_url key="ogimage" />
+        <meta property="og:site_name" content=siteName key="ogsitename" />
+        <meta
+          property="og:description"
+          content=html_description
+          key="ogdesc"
+        />
+        <meta name="twitter:card" content="summary" key="twcard" />
+      </Next.Head>
       <div className="justify-center my-5">
         <div
           className="text-3xl mx-5 font-display font-bold text-center text-gray-700">
@@ -62,7 +80,7 @@ let default = ({show}: props) =>
         />
       </div>
       <Player />
-    </div>
+    </div>;
   | Result.Error(error) =>
     Js.Console.error(error);
     <P>

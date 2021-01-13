@@ -2,10 +2,12 @@
 
 import * as Api from "../../common/Api.js";
 import * as Curry from "bs-platform/lib/es6/curry.js";
+import * as Index from "../index.js";
 import * as Utils from "../../common/Utils.js";
 import * as React from "react";
 import * as Js_dict from "bs-platform/lib/es6/js_dict.js";
 import * as $$Promise from "reason-promise/src/js/promise.js";
+import Head from "next/head";
 import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
 
 function $lbrackpublic_id$rbrack$Player(Props) {
@@ -26,8 +28,40 @@ function $$default(param) {
     return React.createElement("div", undefined, React.createElement("h1", undefined, Utils.s("Ouups !!")), React.createElement("p", undefined, Utils.s("Il y a eu une erreur lors de la récupération de l\'épisode, veuillez réessayer.")));
   }
   var match = e._0.data;
+  var image_url = match.image_url;
   var html_description = match.html_description;
-  return React.createElement("div", undefined, React.createElement($lbrackpublic_id$rbrack$Player, {
+  var name = match.name;
+  return React.createElement("div", undefined, React.createElement(Head, {
+                  children: null
+                }, React.createElement("title", undefined, Utils.s(name)), React.createElement("meta", {
+                      content: "width=device-width, initial-scale=1",
+                      name: "viewport"
+                    }), React.createElement("meta", {
+                      charSet: "utf-8"
+                    }), html_description !== undefined ? React.createElement(React.Fragment, undefined, React.createElement("meta", {
+                            content: html_description,
+                            name: "description"
+                          }), React.createElement("meta", {
+                            key: "ogdesc",
+                            content: html_description,
+                            property: "og:description"
+                          })) : null, React.createElement("meta", {
+                      key: "ogtitle",
+                      content: name,
+                      property: "og:title"
+                    }), image_url !== undefined ? React.createElement("meta", {
+                        key: "ogimage",
+                        content: image_url,
+                        property: "og:image"
+                      }) : null, React.createElement("meta", {
+                      key: "ogsitename",
+                      content: Index.siteName,
+                      property: "og:site_name"
+                    }), React.createElement("meta", {
+                      key: "twcard",
+                      content: "summary",
+                      name: "twitter:card"
+                    })), React.createElement($lbrackpublic_id$rbrack$Player, {
                   public_id: match.public_id
                 }), html_description !== undefined ? React.createElement("div", {
                     className: "text-justify m-3 text-gray-800 space-y-5",

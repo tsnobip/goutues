@@ -24,8 +24,38 @@ let default = ({episod}: props) =>
         ->s
       </p>
     </div>;
-  | Result.Ok({data: {html_description, public_id}}) =>
+  | Result.Ok({data: {html_description, name, image_url, public_id}}) =>
+    let title = name;
     <div>
+      <Next.Head>
+        <title> {s(title)} </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        {switch (html_description) {
+         | Some(html_description) =>
+           <>
+             <meta name="description" content=html_description />
+             <meta
+               property="og:description"
+               content=html_description
+               key="ogdesc"
+             />
+           </>
+         | None => React.null
+         }}
+        <meta property="og:title" content=title key="ogtitle" />
+        {switch (image_url) {
+         | Some(image_url) =>
+           <meta property="og:image" content=image_url key="ogimage" />
+         | None => React.null
+         }}
+        <meta
+          property="og:site_name"
+          content=Index.siteName
+          key="ogsitename"
+        />
+        <meta name="twitter:card" content="summary" key="twcard" />
+      </Next.Head>
       <Player public_id />
       {switch (html_description) {
        | Some(html_description) =>
@@ -35,7 +65,7 @@ let default = ({episod}: props) =>
          />
        | None => React.null
        }}
-    </div>
+    </div>;
   };
 
 let getServerSideProps: Next.GetServerSideProps.t(props, {.}) =
