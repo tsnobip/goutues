@@ -13,16 +13,16 @@ module Navigation = {
   [@react.component]
   let make = () =>
     <nav
-      className="px-2 py-1 flex border-b-4 mb-10 border-yellow justify-between items-center text-lg">
+      className="px-2 pt-1 pb-2 flex border-b-4 mb-10 border-yellow justify-between items-baseline text-lg">
       <Link href="/">
-        <a className="flex items-center">
+        <a>
           <span
             className="text-brown text-4xl md:text-5xl font-semibold font-logo">
             {React.string({js|Goutues|js})}
           </span>
         </a>
       </Link>
-      <div className="flex items-end">
+      <div className="flex items-center">
         <div className="px-3 font-display hover:opacity-75">
           <Link href="/episodes">
             <a> {React.string({js|Épisodes|js})} </a>
