@@ -42,7 +42,6 @@ let default = ({episods, show}: props) =>
         <meta name="twitter:card" content="summary" key="twcard" />
       </Next.Head>
       {episods
-       ->Array.reverse
        ->Array.map(episod => {
            Api.Podcast.(<EpisodCard key={episod.public_id} episod />)
          })
@@ -52,7 +51,7 @@ let default = ({episods, show}: props) =>
 
 let getServerSideProps: Next.GetServerSideProps.t(props, {.}) =
   _ctx => {
-    let episods = Api.Podcasts.get(~public=true, ());
+    let episods = Api.Podcasts.get();
     let show = Api.Shows.SingleById.get();
     Promise.all2(episods, show)
     ->Promise.map(((episods, show)) => {

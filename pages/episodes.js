@@ -54,7 +54,7 @@ function $$default(param) {
                         key: "twcard",
                         content: "summary",
                         name: "twitter:card"
-                      })), Belt_Array.map(Belt_Array.reverse(match._0.data), (function (episod) {
+                      })), Belt_Array.map(match._0.data, (function (episod) {
                       return React.createElement(EpisodCard.make, {
                                   episod: episod,
                                   key: episod.public_id
@@ -66,7 +66,7 @@ function $$default(param) {
 }
 
 function getServerSideProps(_ctx) {
-  var episods = Api.Podcasts.get(true, undefined, undefined, undefined, undefined, undefined, undefined);
+  var episods = Api.Podcasts.get(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
   var show = Curry._1(Api.Shows.SingleById.get, undefined);
   return $$Promise.map($$Promise.all2(episods, show), (function (param) {
                 return {
