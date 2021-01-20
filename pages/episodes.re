@@ -45,13 +45,14 @@ let default = ({episods, show}: props) =>
        ->Array.map(episod => {
            Api.Podcast.(<EpisodCard key={episod.public_id} episod />)
          })
+       ->Array.reverse
        ->React.array}
     </div>;
   };
 
 let getServerSideProps: Next.GetServerSideProps.t(props, {.}) =
   _ctx => {
-    let episods = Api.Podcasts.get();
+    let episods = Api.Podcasts.get(~public=true, ());
     let show = Api.Shows.SingleById.get();
     Promise.all2(episods, show)
     ->Promise.map(((episods, show)) => {

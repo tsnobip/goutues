@@ -54,19 +54,19 @@ function $$default(param) {
                         key: "twcard",
                         content: "summary",
                         name: "twitter:card"
-                      })), Belt_Array.map(match._0.data, (function (episod) {
-                      return React.createElement(EpisodCard.make, {
-                                  episod: episod,
-                                  key: episod.public_id
-                                });
-                    })));
+                      })), Belt_Array.reverse(Belt_Array.map(match._0.data, (function (episod) {
+                          return React.createElement(EpisodCard.make, {
+                                      episod: episod,
+                                      key: episod.public_id
+                                    });
+                        }))));
   }
   console.error("an error occurred while loading the podcasts", e);
   return React.createElement("div", undefined, React.createElement("h1", undefined, Utils.s("Ouups !!")), React.createElement("p", undefined, Utils.s("Il y a eu une erreur lors de la récupération des épisodes, veuillez réessayer.")));
 }
 
 function getServerSideProps(_ctx) {
-  var episods = Api.Podcasts.get(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+  var episods = Api.Podcasts.get(true, undefined, undefined, undefined, undefined, undefined, undefined);
   var show = Curry._1(Api.Shows.SingleById.get, undefined);
   return $$Promise.map($$Promise.all2(episods, show), (function (param) {
                 return {
