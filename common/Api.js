@@ -1003,10 +1003,6 @@ function t_encode$6(v) {
                 Decco.intToJson(v.downloads_count)
               ],
               [
-                "auto_sharing",
-                Decco.arrayToJson(t_encode$5, v.auto_sharing)
-              ],
-              [
                 "published_at",
                 Decco.stringToJson(v.published_at.toISOString())
               ],
@@ -1315,54 +1311,41 @@ function t_decode$6(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var auto_sharing = Decco.arrayFromJson(t_decode$5, Belt_Option.getWithDefault(Js_dict.get(dict$1, "auto_sharing"), null));
-  if (auto_sharing.TAG) {
-    var e$21 = auto_sharing._0;
+  var published_at = t_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "published_at"), null));
+  if (published_at.TAG) {
+    var e$21 = published_at._0;
     return {
             TAG: 1,
             _0: {
-              path: ".auto_sharing" + e$21.path,
+              path: ".published_at" + e$21.path,
               message: e$21.message,
               value: e$21.value
             },
             [Symbol.for("name")]: "Error"
           };
   }
-  var published_at = t_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "published_at"), null));
-  if (published_at.TAG) {
-    var e$22 = published_at._0;
+  var created_at = t_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "created_at"), null));
+  if (created_at.TAG) {
+    var e$22 = created_at._0;
     return {
             TAG: 1,
             _0: {
-              path: ".published_at" + e$22.path,
+              path: ".created_at" + e$22.path,
               message: e$22.message,
               value: e$22.value
             },
             [Symbol.for("name")]: "Error"
           };
   }
-  var created_at = t_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "created_at"), null));
-  if (created_at.TAG) {
-    var e$23 = created_at._0;
-    return {
-            TAG: 1,
-            _0: {
-              path: ".created_at" + e$23.path,
-              message: e$23.message,
-              value: e$23.value
-            },
-            [Symbol.for("name")]: "Error"
-          };
-  }
   var updated_at = t_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "updated_at"), null));
   if (updated_at.TAG) {
-    var e$24 = updated_at._0;
+    var e$23 = updated_at._0;
     return {
             TAG: 1,
             _0: {
-              path: ".updated_at" + e$24.path,
-              message: e$24.message,
-              value: e$24.value
+              path: ".updated_at" + e$23.path,
+              message: e$23.message,
+              value: e$23.value
             },
             [Symbol.for("name")]: "Error"
           };
@@ -1372,13 +1355,13 @@ function t_decode$6(v) {
           return Decco.arrayFromJson(tag_decode, param);
         }), v$1);
   if (tags.TAG) {
-    var e$25 = tags._0;
+    var e$24 = tags._0;
     return {
             TAG: 1,
             _0: {
-              path: ".tags" + e$25.path,
-              message: e$25.message,
-              value: e$25.value
+              path: ".tags" + e$24.path,
+              message: e$24.message,
+              value: e$24.value
             },
             [Symbol.for("name")]: "Error"
           };
@@ -1412,7 +1395,6 @@ function t_decode$6(v) {
               smartlink_url: smartlink_url._0,
               waveform_url: waveform_url._0,
               downloads_count: downloads_count._0,
-              auto_sharing: auto_sharing._0,
               published_at: published_at._0,
               created_at: created_at._0,
               updated_at: updated_at._0,
@@ -1422,13 +1404,13 @@ function t_decode$6(v) {
             [Symbol.for("name")]: "Ok"
           };
   }
-  var e$26 = files._0;
+  var e$25 = files._0;
   return {
           TAG: 1,
           _0: {
-            path: ".files" + e$26.path,
-            message: e$26.message,
-            value: e$26.value
+            path: ".files" + e$25.path,
+            message: e$25.message,
+            value: e$25.value
           },
           [Symbol.for("name")]: "Error"
         };
