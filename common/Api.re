@@ -264,7 +264,6 @@ module Podcast = {
     smartlink_url: string,
     waveform_url: string,
     downloads_count: int,
-    auto_sharing: array(AutoSharing.t),
     published_at: IsoDate.t,
     created_at: IsoDate.t,
     updated_at: IsoDate.t,
