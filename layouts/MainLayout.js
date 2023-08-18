@@ -47,7 +47,7 @@ function MainLayout$Navigation(Props) {
                                 src: "/static/ri-instagram-line.svg"
                               })
                         }), React.createElement(MainLayout$Icon, {
-                          link: "https://smartlink.ausha.co/goutues",
+                          link: "https://podcast.ausha.co/goutues",
                           children: React.createElement("img", {
                                 className: "w-16",
                                 src: "/static/ausha.svg"
