@@ -35,7 +35,7 @@ module Navigation = {
           <Icon link="https://www.instagram.com/goutues/">
             <img className="h-6" src="/static/ri-instagram-line.svg" />
           </Icon>
-          <Icon link="https://smartlink.ausha.co/goutues">
+          <Icon link="https://podcast.ausha.co/goutues">
             <img className="w-16" src="/static/ausha.svg" />
           </Icon>
         </div>
