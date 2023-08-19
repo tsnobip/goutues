@@ -85,7 +85,6 @@ module Common = {
   type data('a) = {
     data: array('a),
     meta,
-    links,
   };
 
   [@decco]
@@ -335,7 +334,7 @@ module Show = {
     description: string,
     html_description: string,
     image_url: string,
-    links: Common.arrayData(Link.t),
+    listening_links: Common.arrayData(Link.t),
   };
 };
 

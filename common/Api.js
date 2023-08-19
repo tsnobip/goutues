@@ -324,10 +324,6 @@ function data_encode(encoder_a, v) {
               [
                 "meta",
                 meta_encode(v.meta)
-              ],
-              [
-                "links",
-                links_encode(v.links)
               ]
             ]);
 }
@@ -355,37 +351,23 @@ function data_decode(decoder_a, v) {
           };
   }
   var meta = meta_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "meta"), null));
-  if (meta.TAG) {
-    var e$1 = meta._0;
-    return {
-            TAG: 1,
-            _0: {
-              path: ".meta" + e$1.path,
-              message: e$1.message,
-              value: e$1.value
-            },
-            [Symbol.for("name")]: "Error"
-          };
-  }
-  var links = links_decode(Belt_Option.getWithDefault(Js_dict.get(dict$1, "links"), null));
-  if (!links.TAG) {
+  if (!meta.TAG) {
     return {
             TAG: 0,
             _0: {
               data: data._0,
-              meta: meta._0,
-              links: links._0
+              meta: meta._0
             },
             [Symbol.for("name")]: "Ok"
           };
   }
-  var e$2 = links._0;
+  var e$1 = meta._0;
   return {
           TAG: 1,
           _0: {
-            path: ".links" + e$2.path,
-            message: e$2.message,
-            value: e$2.value
+            path: ".meta" + e$1.path,
+            message: e$1.message,
+            value: e$1.value
           },
           [Symbol.for("name")]: "Error"
         };
@@ -1517,10 +1499,10 @@ function t_encode$9(v) {
                 Decco.stringToJson(v.image_url)
               ],
               [
-                "links",
+                "listening_links",
                 simpleData_encode((function (param) {
                         return Decco.arrayToJson(t_encode$1, param);
-                      }), v.links)
+                      }), v.listening_links)
               ]
             ]);
 }
@@ -1573,27 +1555,27 @@ function t_decode$9(v) {
             [Symbol.for("name")]: "Error"
           };
   }
-  var v$1 = Belt_Option.getWithDefault(Js_dict.get(dict$1, "links"), null);
-  var links = simpleData_decode((function (param) {
+  var v$1 = Belt_Option.getWithDefault(Js_dict.get(dict$1, "listening_links"), null);
+  var listening_links = simpleData_decode((function (param) {
           return Decco.arrayFromJson(t_decode$1, param);
         }), v$1);
-  if (!links.TAG) {
+  if (!listening_links.TAG) {
     return {
             TAG: 0,
             _0: {
               description: description._0,
               html_description: html_description._0,
               image_url: image_url._0,
-              links: links._0
+              listening_links: listening_links._0
             },
             [Symbol.for("name")]: "Ok"
           };
   }
-  var e$3 = links._0;
+  var e$3 = listening_links._0;
   return {
           TAG: 1,
           _0: {
-            path: ".links" + e$3.path,
+            path: ".listening_links" + e$3.path,
             message: e$3.message,
             value: e$3.value
           },
