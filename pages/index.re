@@ -34,7 +34,7 @@ let siteName = {js|Goûtues - Podcast|js};
 let default = ({show}: props) =>
   switch (show->Api.Shows.SingleById.t_decode) {
   | Result.Ok({
-      data: {description, html_description, image_url, links: {data: links}},
+      data: {description, html_description, image_url, listening_links: {data: links}},
     }) =>
     let title = siteName;
     <div className="flex flex-col">

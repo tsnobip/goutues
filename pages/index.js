@@ -96,7 +96,7 @@ function $$default(param) {
                       className: "text-3xl mx-5 font-display font-bold text-center text-gray-700"
                     }, Utils.s("Retrouvez-nous sur toutes ces plateformes")), React.createElement("div", {
                       className: "flex flex-row justify-center my-5"
-                    }, Belt_Array.keepMap(match.links.data, (function (param) {
+                    }, Belt_Array.keepMap(match.listening_links.data, (function (param) {
                             var url = param.url;
                             var key = param.key;
                             switch (key) {
