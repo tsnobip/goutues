@@ -1,12 +1,12 @@
-const bsconfig = require('./bsconfig.json');
+const rescriptJson = require('./rescript.json');
 
-const transpileModules = ["bs-platform"].concat(bsconfig["bs-dependencies"]);
+const transpileModules = ["rescript"].concat(rescriptJson["dependencies"]);
 const withTM = require("next-transpile-modules")(transpileModules);
 
 const config = {
   target: "serverless",
   pageExtensions: ["jsx", "js"],
-  transpileModules: ["bs-platform"].concat(bsconfig["bs-dependencies"]),
+  transpileModules: transpileModules,
   env: {
     ENV: process.env.NODE_ENV,
   },

@@ -1,17 +1,15 @@
 {
-  "name": "rescript-nextjs-template",
+  "name": "goutues-website",
   "namespace": false,
-  "reason": {
-    "react-jsx": 3
-  },
-  "refmt": 3,
-  "bs-dependencies": [
-    "reason-react",
-    "reason-promise",
-    "decco"
+  "dependencies": [
+    "@rescript/react",
+    "sury"
   ],
+  "jsx": {
+    "version": 4
+  },
   "ppx-flags": [
-    "decco/ppx"
+    "sury-ppx/bin"
   ],
   "sources": [
     {
@@ -31,16 +29,11 @@
     "layouts"
   ],
   "package-specs": {
-    "module": "es6",
+    "module": "esmodule",
     "in-source": true
   },
   "suffix": ".js",
   "warnings": {
     "error": "+101+8"
-  },
-  "bsc-flags": [
-    "-bs-no-version-header",
-    "-bs-super-errors",
-    "-bs-g"
-  ]
+  }
 }
