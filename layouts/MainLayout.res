@@ -1,31 +1,28 @@
-module Link = Next.Link;
+module Link = Next.Link
 
 module Icon = {
-  [@react.component]
-  let make = (~link as href, ~children) => {
-    <a className="px-1 opacity-75 hover:opacity-50" target="_blank" href>
-      children
-    </a>;
-  };
-};
+  @react.component
+  let make = (~link as href, ~children) =>
+    <a className="px-1 opacity-75 hover:opacity-50" target="_blank" href> children </a>
+}
 
 module Navigation = {
-  [@react.component]
+  @react.component
   let make = () =>
     <nav
-      className="px-2 pt-1 pb-2 flex border-b-4 mb-10 border-yellow justify-between items-baseline text-lg">
+      className="px-2 pt-1 pb-2 flex border-b-4 mb-10 border-yellow justify-between items-baseline text-lg"
+    >
       <Link href="/">
         <a>
-          <span
-            className="text-brown text-4xl md:text-5xl font-semibold font-logo">
-            {React.string({js|Goutues|js})}
+          <span className="text-brown text-4xl md:text-5xl font-semibold font-logo">
+            {React.string(`Goutues`)}
           </span>
         </a>
       </Link>
       <div className="flex items-center">
         <div className="px-3 font-display hover:opacity-75">
           <Link href="/episodes">
-            <a> {React.string({js|Épisodes|js})} </a>
+            <a> {React.string(`Épisodes`)} </a>
           </Link>
         </div>
         <div className="flex flex-row items-center">
@@ -40,16 +37,15 @@ module Navigation = {
           </Icon>
         </div>
       </div>
-    </nav>;
-};
+    </nav>
+}
 
-[@react.component]
+@react.component
 let make = (~children) => {
-  let minWidth = ReactDOMRe.Style.make(~minWidth="20rem", ());
-  <div style=minWidth className="flex lg:justify-center">
+  <div style={{minWidth: "20rem"}} className="flex lg:justify-center">
     <div className="max-w-5xl w-full lg:w-3/4 text-gray-700 font-base">
       <Navigation />
       <main className="my-4"> children </main>
     </div>
-  </div>;
-};
+  </div>
+}
