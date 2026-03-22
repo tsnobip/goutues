@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @import "./_fonts.css";
+
 body {
-  @apply font-sans;
   @apply bg-gray-100;
 }
 
