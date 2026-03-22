@@ -17,3 +17,6 @@ lib/
 .env**
 .vercel
 .env*.local
+
+!next.config.mjs
+*.mjs

@@ -19,7 +19,17 @@ let get = url =>
 module IsoDate = {
   type t = Date.t
 
-  let schema = S.string->S.datetime
+  let schema = S.string->S.transform(s => {
+    parser: value => {
+      let date = Date.fromString(value)
+      if Date.getTime(date)->Float.isNaN {
+        s.fail(`Invalid date ${value}`)
+      } else {
+        date
+      }
+    },
+    serializer: Date.toISOString,
+  })
 
   @send
   external toDayAndMonthShortString: (

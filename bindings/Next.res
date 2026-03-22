@@ -117,16 +117,13 @@ module Error = {
 }
 
 module Dynamic = {
-  @deriving(abstract)
   type options = {
-    @optional
-    ssr: bool,
-    @optional
-    loading: unit => React.element,
+    ssr?: bool,
+    loading?: unit => React.element,
   }
 
   @module("next/dynamic")
-  external dynamic: (unit => Promise.t<'a>, options) => 'a = "default"
+  external dynamic: (unit => promise<'a>, options) => 'a = "default"
 
-  @val external import: string => Promise.t<'a> = "import"
+  @val external import: string => promise<'a> = "import"
 }

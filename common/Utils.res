@@ -1,1 +1,1 @@
-let s = React.string
+external s: string => React.element = "%identity"
