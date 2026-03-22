@@ -54,6 +54,7 @@ module Link = {
   @module("next/link") @react.component
   external make: (
     ~href: string=?,
+    ~className: string=?,
     ~_as: string=?,
     ~prefetch: bool=?,
     ~replace: option<bool>=?,

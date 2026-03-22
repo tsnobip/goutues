@@ -13,17 +13,13 @@ module Navigation = {
       className="px-2 pt-1 pb-2 flex border-b-4 mb-10 border-yellow justify-between items-baseline text-lg"
     >
       <Link href="/">
-        <a>
-          <span className="text-brown text-4xl md:text-5xl font-semibold font-logo">
-            {React.string(`Goutues`)}
-          </span>
-        </a>
+        <span className="text-brown text-4xl md:text-5xl font-semibold font-logo">
+          {React.string(`Goutues`)}
+        </span>
       </Link>
       <div className="flex items-center">
         <div className="px-3 font-display hover:opacity-75">
-          <Link href="/episodes">
-            <a> {React.string(`Épisodes`)} </a>
-          </Link>
+          <Link href="/episodes"> {React.string(`Épisodes`)} </Link>
         </div>
         <div className="flex flex-row items-center">
           <Icon link="https://facebook.com/goutues">
@@ -43,7 +39,7 @@ module Navigation = {
 @react.component
 let make = (~children) => {
   <div style={{minWidth: "20rem"}} className="flex lg:justify-center">
-    <div className="max-w-5xl w-full lg:w-3/4 text-gray-700 font-base">
+    <div className="max-w-5xl w-full lg:w-3/4 text-gray-700 font-sans">
       <Navigation />
       <main className="my-4"> children </main>
     </div>
