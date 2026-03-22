@@ -18,5 +18,7 @@ lib/
 .vercel
 .env*.local
 
-!next.config.mjs
+# ReScript emits *.mjs; negate configs that must be committed (last matching rule wins).
 *.mjs
+!next.config.mjs
+!postcss.config.mjs
