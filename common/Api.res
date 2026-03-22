@@ -41,7 +41,7 @@ module IsoDate = {
   @send
   external toMonthAndYearShortString: (
     t,
-    @as(json`undefined`) _,
+    @as(json`"fr-FR"`) _,
     @as(json`{month: 'short', year: 'numeric'}`) _,
   ) => string = "toLocaleDateString"
 }

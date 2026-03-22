@@ -7,16 +7,13 @@
   "type": "module",
   "dependencies": {
     "@rescript/react": "^0.14.2",
-    "autoprefixer": "^10.2.1",
-    "cssnano": "^4.1.10",
     "next": "^16.2.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "request": "^2.88.0",
     "rescript": "^12.2.0",
     "sury": "v11.0.0-alpha.4",
     "sury-ppx": "v11.0.0-alpha.2",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^4.2.2"
   },
   "scripts": {
     "dev": "next",
@@ -31,10 +28,8 @@
     "res": "rescript watch"
   },
   "devDependencies": {
-    "postcss": "^8.2.13",
+    "@tailwindcss/postcss": "^4.2.2",
+    "postcss": "^8.5.8",
     "vercel": "^50.34.3"
-  },
-  "peerDependencies": {
-    "postcss": "^8.2.13"
   }
 }

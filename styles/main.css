@@ -1,5 +1,21 @@
-@tailwind base;
-@tailwind components;
 @import "./_fonts.css";
+@import "tailwindcss";
 
-@tailwind utilities;
+@source "../pages";
+@source "../components";
+@source "../layouts";
+@source "../bindings";
+
+@theme {
+  --color-yellow: #eedf83;
+  --color-brown: #9b4d1c;
+
+  --font-sans: "PT Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-serif: Georgia, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-mono: Menlo, Monaco, Consolas, "Roboto Mono", "SFMono-Regular", "Segoe UI", Courier,
+    monospace;
+  --font-logo: "Wildy-Sans", ui-sans-serif, sans-serif;
+  --font-display: "Averia Serif Libre", Georgia, serif;
+}
