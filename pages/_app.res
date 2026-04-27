@@ -1,5 +1,10 @@
 %%raw("import '../styles/main.css'")
 
+module Analytics = {
+  @react.component @module("@vercel/analytics/next")
+  external make: unit => React.element = "Analytics"
+}
+
 // This type is based on the getInitialProps return value.
 // If you are using getServerSideProps or getStaticProps, you probably
 // will never need this
@@ -26,9 +31,12 @@ let default = (props: props): React.element => {
 
   let content = React.createElement(component, pageProps)
 
-  switch router.route {
-  | "/episode" => <MainLayout> content </MainLayout>
-  | "/episodes" => <MainLayout> content </MainLayout>
-  | _ => <MainLayout> content </MainLayout>
-  }
+  <>
+    <Analytics />
+    {switch router.route {
+    | "/episode" => <MainLayout> content </MainLayout>
+    | "/episodes" => <MainLayout> content </MainLayout>
+    | _ => <MainLayout> content </MainLayout>
+    }}
+  </>
 }

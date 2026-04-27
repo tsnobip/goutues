@@ -8,6 +8,7 @@
   "dependencies": {
     "@rescript/react": "^0.14.2",
     "@tailwindcss/postcss": "^4.2.2",
+    "@vercel/analytics": "^2.0.1",
     "next": "^16.2.1",
     "postcss": "^8.5.8",
     "react": "^19.2.4",
@@ -31,5 +32,6 @@
   },
   "devDependencies": {
     "vercel": "^50.34.3"
-  }
+  },
+  "packageManager": "yarn@4.14.1"
 }
