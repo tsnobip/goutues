@@ -2933,7 +2933,7 @@ __metadata:
     "@tailwindcss/postcss": "npm:^4.2.2"
     "@vercel/analytics": "npm:^2.0.1"
     next: "npm:^16.2.1"
-    postcss: "npm:^8.5.8"
+    postcss: "npm:^8.5.10"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     rescript: "npm:^12.2.0"
@@ -4028,7 +4028,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.5.6, postcss@npm:^8.5.8":
+"postcss@npm:^8.5.10":
+  version: 8.5.12
+  resolution: "postcss@npm:8.5.12"
+  dependencies:
+    nanoid: "npm:^3.3.11"
+    picocolors: "npm:^1.1.1"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/5baebaf574c567bc1b3d61197f38af4ce5920b8f611c887fb6bc3dcc14af00253c169dbf19897bc889cce0b0d9818ab5eb4ea0caedf02b0bab10da8a43ce8c12
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.5.6":
   version: 8.5.8
   resolution: "postcss@npm:8.5.8"
   dependencies:
